@@ -1,0 +1,45 @@
+.TH SMsh 1 "March 2025" "SMsh.sh 1.0" "SMS via Email Gateway"
+.SH NAME
+SMsh \- send SMS messages via email-to-SMS gateways using msmtp
+.SH SYNOPSIS
+.B SMsh.sh
+[\-m | --message] "custom message" [\-s | --subject] "custom subject" [\-i | --interactive] [--dry-run] [\-r | --repeat count] [\-c | --carrier "carrier domain"] (phone_number | path_to_file.txt)
+.SH DESCRIPTION
+SMsh.sh is a Bash script that sends SMS messages by leveraging email-to-SMS gateways. It supports sending to a single 10-digit US phone number or multiple numbers read from a file. It also offers options for interactive input, dry runs, custom messages, and concurrency control.
+.SH OPTIONS
+.TP
+.B \-m, \-\-message "custom message"
+Specify a custom message.
+.TP
+.B \-s, \-\-subject "custom subject"
+Specify a custom subject.
+.TP
+.B \-i, \-\-interactive
+Run in interactive mode to prompt for inputs.
+.TP
+.B --dry-run
+Execute in dry run mode (no messages are actually sent).
+.TP
+.B \-r, \-\-repeat count
+Define the number of times to repeat the message (default is 1).
+.TP
+.B \-c, \-\-carrier "carrier domain"
+Send messages using a specified carrier domain instead of the default list.
+.SH USAGE
+To send a message to a single phone number:
+.IP
+\fB./SMsh.sh 1234567890\fP
+.IP
+To send messages from a file:
+.IP
+\fB./SMsh.sh numbers.txt\fP
+.SH PREREQUISITES
+Ensure that \fBmsmtp\fP is installed and properly configured on your system.
+.SH SIGNAL HANDLING
+The script handles SIGINT and SIGTERM signals to clean up any spawned child processes.
+.SH AUTHOR
+Written by [Your Name].
+.SH REPORTING BUGS
+Report bugs to: <your.email@example.com>
+.SH COPYRIGHT
+This is free software; see the source for copying conditions. There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
