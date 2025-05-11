@@ -1,0 +1,1 @@
+Add disposable / temporary mail service setup through the CLI and automatic Mail server setup
